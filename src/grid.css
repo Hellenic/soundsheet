@@ -1,0 +1,32 @@
+svg {
+
+}
+/*
+#490a3d
+#bd1550
+#e97f02
+#f8ca00
+*/
+svg g {
+  fill: #490a3d;
+  fill-opacity: 0.6;
+}
+svg g:hover {
+  fill: rgba(73, 10, 61, 0.7);
+  fill-opacity: 0.7;
+}
+svg g:hover text {
+  fill-opacity: 1;
+}
+
+svg g polygon {
+  stroke: #e97f02;
+  stroke-width: 0.2;
+  transition: fill-opacity .5s;
+}
+svg g text {
+  font-size: 0.22em;
+  fill: white;
+  fill-opacity: 0.7;
+  transition: fill-opacity .5s;
+}
