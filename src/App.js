@@ -11,7 +11,7 @@ class App extends Component {
 
     /* VCO */
     var vco = context.createOscillator();
-    vco.type = vco.SINE;
+    vco.type = 'sine';
     vco.frequency.value = 0;
     vco.start(0);
 
@@ -38,15 +38,18 @@ class App extends Component {
   render() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const hexagonSize = { x: 20, y: 20 };
+    const aspectRatio = Math.max((width / height), 1);
+    const size = Math.round(aspectRatio * 10); // Aspect ratio * 10 seems like a nice size
     return (
       <div className="App">
         <div className="App-header">
-          <h1>🎼 Soundsheet</h1>
+          <h1>
+            <span role="img" aria-label="note">🎼</span>&nbsp;
+            <span>Soundsheet</span>
+          </h1>
         </div>
-        <HexGrid width={width} height={height} viewBox="-50 -50 100 100">
-          {/* Main grid with bit hexagons, all manual */}
-          <Layout size={hexagonSize} flat={false} spacing={1.15} origin={{ x: 10, y: 10 }}>
+        <HexGrid width={width} height={height}>
+          <Layout size={{ x: size, y: size }} flat={false} spacing={1.15} origin={{ x: 5, y: 10 }}>
             <Hexagon q={-2} r={0} s={0} onClick={() => this.playNote('C3')}>
               <Text>C</Text>
             </Hexagon>
